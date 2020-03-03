@@ -3,12 +3,11 @@ public class Message implements MessageTypes
 
     public void generateMessage(String message, int messageType, ChatNode sender)
     {
-        //TODO: Add Code
         String errorString;
         switch (messageType) {
             // Join
             case 1:  messageType = 1;
-                     // Ping to everyone that the (ChatNode sender) wants to joined
+                     // Ping to know IP Node that the (ChatNode sender) wants to joined
                      break;
             // Joined
             case 2:  messageType = 2;
@@ -20,7 +19,8 @@ public class Message implements MessageTypes
                      break;
             // Note
             case 4:  messageType = 4;
-                     // Create a Note for the (ChatNode sender)
+                     // Send a Note for the (ChatNode sender)
+                     // Calls (listenForMessages)
                      break;
             default: errorString = "Invalid Message Type";
                      break;
@@ -38,16 +38,19 @@ public class Message implements MessageTypes
     {
       // Update the Node Array and let all Nodes know Node has JOINED
       // Send JOINED (ChatNode sender) message to all nodes in Node Array
+      System.out.println("%s has entered the chat", sender.name);
     }
 
     private void leave(ChatNode sender)
     {
       // (ChatNode sender) updates the Node Array excluding itself
+      System.out.println("%s has left the chat", sender.name);
     }
 
     private void note(ChatNode sender, String message)
     {
       // Send the Reciever the message
+      System.out.println("%s: ", message);
     }
 
 }
