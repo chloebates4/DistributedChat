@@ -6,6 +6,12 @@ public class ChatNode implements MessageTypes
     private int nodeIp;
     private String name;
 
+    ChatNode(int newNodeIp, String newName)
+    {
+        nodeIp = newNodeIp;
+        name = newName;
+    }
+
     // These get the node info and return each of them
     public ChatNode[] getNodeArr()
     {
