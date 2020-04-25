@@ -2,7 +2,7 @@ public class ChatNode implements MessageTypes
 {
     // Private Class vars to store important node info
     //Limit max size to 100
-    private ChatNode[] nodeArr = new ChatNode [100];
+    private int[] nodeArr = new int[100];
     private int nodeIp;
     private String name;
 
@@ -10,10 +10,11 @@ public class ChatNode implements MessageTypes
     {
         nodeIp = newNodeIp;
         name = newName;
+        callReceiver();
     }
 
     // These get the node info and return each of them
-    public ChatNode[] getNodeArr()
+    public int[] getNodeArr()
     {
         return nodeArr;
     }
@@ -29,7 +30,7 @@ public class ChatNode implements MessageTypes
     }
 
     // These functions sets the node info
-    public void setNodeArr( ChatNode[] newNodeArr )
+    public void setNodeArr( int[] newNodeArr )
     {
         nodeArr = newNodeArr;
     }
