@@ -1,14 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package distributedchat;
 
 /**
  *
  * @author Chloe Bates, Sam Gilb, & Colton Spector
  */
-public class MessageTypes {
-    
+  
+public interface MessageTypes
+{
+
+   int JOIN = 1;
+   int JOINED = 2;
+   int LEAVE = 3;
+   int NOTE = 4;
+
 }

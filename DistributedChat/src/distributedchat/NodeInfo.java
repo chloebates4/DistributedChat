@@ -1,14 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package distributedchat;
 
 /**
  *
  * @author Chloe Bates, Sam Gilb, & Colton Spector
  */
-public class NodeInfo {
-    
+public class NodeInfo
+{
+
+    int nodeIP = 0;
+    int[] nodeArr = new int [20];
+
+    public void setNodeIP(int nodeIP)
+    {
+        this.nodeIP = nodeIP;
+    }
+
+    public void setNodeArr(int[] nodeArr)
+    {
+        this.nodeArr = nodeArr;
+    }
+
 }
