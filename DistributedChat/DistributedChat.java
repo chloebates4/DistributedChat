@@ -26,8 +26,12 @@ public class DistributedChat
             socket.setTimeToLive(0);
 
             socket.joinGroup(group);
-            Thread t = new Thread(new
-            ChatNode(socket,group,port));
+            Thread t = new Thread(new ChatNode(socket,group,port));
+            String joinMessage = name + ":" + " Has joined the chat";
+            byte[] joinBuffer = joinMessage.getBytes();
+            DatagramPacket joinDatagram = new
+            DatagramPacket(joinBuffer,joinBuffer.length,group,port);
+            socket.send(joinDatagram);
 
             // Spawn a thread for reading messages
             t.start();
@@ -40,6 +44,13 @@ public class DistributedChat
                 message = sc.nextLine();
                 if(message.equalsIgnoreCase(DistributedChat.TERMINATE))
                 {
+                    String leaveMessage = name + ":" + " Has left the chat";
+                    byte[] leaveBuffer = leaveMessage.getBytes();
+                    DatagramPacket leaveDatagram = new
+                    DatagramPacket(leaveBuffer,leaveBuffer.length,group,port);
+                    socket.send(leaveDatagram);
+
+
                     finished = true;
                     socket.leaveGroup(group);
                     socket.close();
