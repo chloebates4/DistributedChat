@@ -2,6 +2,11 @@
 import java.net.*;
 import java.io.*;
 import java.util.*;
+
+/**
+To start the chat, Compile both DistributeChat.java & ChatNode.java then run "java Distributed Chat"
+in as many terminals as wanted.
+**/
 public class DistributedChat
 {
     private static final String TERMINATE = "Exit";
