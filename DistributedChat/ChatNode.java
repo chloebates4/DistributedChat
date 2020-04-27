@@ -1,3 +1,4 @@
+// Import Statements
 import java.net.*;
 import java.io.*;
 import java.util.*;
@@ -5,10 +6,13 @@ import java.util.*;
 
 class ChatNode implements Runnable
 {
+    // Object Variable Declaration
     private MulticastSocket socket;
     private InetAddress group;
     private int port;
     private static final int MAX_LEN = 1000;
+
+    // Constructor
     ChatNode(MulticastSocket socket,InetAddress group,int port)
     {
         this.socket = socket;
@@ -16,6 +20,7 @@ class ChatNode implements Runnable
         this.port = port;
     }
 
+    // run method for chatNode
     @Override
     public void run()
     {
@@ -33,6 +38,7 @@ class ChatNode implements Runnable
                 if(!message.startsWith(DistributedChat.name))
                     System.out.println(message);
             }
+            // Error catching
             catch(IOException e)
             {
                 System.out.println("Socket closed!");
